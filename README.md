@@ -17,7 +17,9 @@ This project, a **Digital Toss Coin Emulator**, was designed entirely from scrat
 ## 📋 Schematic Diagram
 The following schematic outlines the circuit logic designed for this toss coin emulator:
 
-*[Insert Image: Schematic_Diagram.jpg]*
+<p align="center">
+  <img src="circuit.jpg" alt="Schematic Diagram" width="600">
+</p>
 
 ## 🛠️ Bill of Materials
 The circuit utilizes the following components to achieve the desired logic operations:
@@ -30,7 +32,7 @@ The circuit utilizes the following components to achieve the desired logic opera
 | **7414 IC (Hex Inverter)** | 2 | Signal Conditioning / Schmitt Trigger |
 | **7408 IC (Quad AND Gate)** | 1 | Output Decision Logic |
 | **2N3904 Transistors** | 3 | LED Drivers (Output Switching) |
-| **Push Button** | 1 | User Input (Gate Control) |
+| **Push Button** | 2 | User Input (Gate Control) |
 | **Potentiometer (50kΩ)** | 1 | Frequency Tuning |
 | **LEDs (Red/Green)** | 2 | Visual Indicators |
 | **Passives (Resistors/Caps)** | Various | Timing & Signal Integrity |
