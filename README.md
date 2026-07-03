@@ -7,13 +7,6 @@ This project was initiated during my first year of college out of pure curiosity
 
 This project, a **Digital Toss Coin Emulator**, was designed entirely from scratch. My goal was to create a hardware-based random event generator using only discrete TTL (Transistor-Transistor Logic) ICs. The project served as an experimental deep-dive into how logic gates, timers, and flip-flops interact in a real-world physical environment.
 
-## 📸 Prototype
-
-<p align="center">
-  <img src="Prototype.jpg" alt="Prototype Image" width="300"><br>
-  <em>Figure 1: The assembled Toss Coin circuit on a perfboard.</em>
-</p>
-
 ## 📋 Schematic Diagram
 The following schematic outlines the circuit logic designed for this toss coin emulator:
 
