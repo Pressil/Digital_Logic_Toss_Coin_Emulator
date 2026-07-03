@@ -1,7 +1,5 @@
 # Digital Logic Toss Coin Emulator
 
-A first-year engineering experiment in discrete logic design, built from scratch using first principles.
-
 ## 📖 Introduction
 This project was initiated during my first year of college out of pure curiosity regarding how Integrated Circuits (ICs) function at a fundamental level. While studying digital logic in my major subjects, I wanted to apply that knowledge to build something tangible without relying on microcontrollers, pre-written libraries, or AI.
 
@@ -40,23 +38,43 @@ The circuit utilizes the following components to achieve the desired logic opera
 | **Passives (Resistors/Caps)** | Various | Timing & Signal Integrity |
 
 ---
+## 📋 Component Functions & Roles
+
+To understand the full architecture, we must analyze the specific role and operational rule of every component type used in your design.
+
+### 1. Integrated Circuits (ICs)
+| Component | Function | Technical Rule / Role |
+| :--- | :--- | :--- |
+| **555 Timer** | Master Clock | Operates in Astable Mode to generate the high-frequency square wave "heartbeat" for the system. |
+| **7474 (Dual D Flip-Flop)** | State Memory | Acts as a D-type latch; stores and shifts the "Heads" or "Tails" state on every clock pulse edge. |
+| **7476 (Dual JK Flip-Flop)** | Toggle Logic | Provides additional state memory to manage the "toggle" function between logic states. |
+| **7414 (Hex Inverter)** | Signal Conditioning | Acts as a Schmitt Trigger; cleans up noisy mechanical button inputs into crisp digital signals. |
+| **7408 (Quad AND Gate)** | Decision Logic | Ensures that the output states are mutually exclusive (only one LED can be lit at a time). |
+
+
+### 2. Active & Passive Components
+| Component | Function | Technical Rule / Role |
+| :--- | :--- | :--- |
+| **2N3904 Transistors** | Electronic Switches | Takes weak logic output (0.5V-5V) to switch higher current directly to the LEDs; protects the ICs. |
+| **Potentiometer** | Frequency Tuning | Used to adjust the resistance in the timing network to speed up or slow down the 555 timer clock. |
+| **Resistors** | Current Limiting | Prevents over-current damage to LEDs and ensures logic pins do not "float" (stay disconnected). |
+| **Capacitors** | Noise Filtering | Acts as a local charge reservoir (decoupling) to smooth out voltage ripples across the IC power rails. |
+
+---
 
 ## ⚙️ Operational Theory
 The circuit operates as a state machine where randomness is derived from the inability of the user to time a button release against a high-frequency clock signal.
 
 ### 1. The Heartbeat (Clock Generation)
-[Image of 555 timer astable multivibrator circuit]
 The 555 Timer is configured in **Astable Mode**. The potentiometer adjusts the charge/discharge rate, creating a square wave that pulses hundreds of times per second. This pulse acts as the "randomness generator"—when the clock is running, the state of the circuit is toggling faster than the eye can perceive.
 
 ### 2. Logic and Memory (The "Coin")
-[Image of flip-flop logic symbol]
 The circuit utilizes D-type (7474) and JK (7476) Flip-Flops as memory cells.
 * **Toggle Configuration:** The flip-flops are wired to invert their output on every rising edge of the clock signal.
 * **State Latency:** While the button is pressed, the clock signal propagates to these flip-flops, causing them to rapidly switch between logic high and low.
 * **Randomization:** Releasing the button interrupts the clock pulse, forcing the flip-flops to "freeze" at their current state (Heads or Tails).
 
 ### 3. Output Driving
-[Image of basic transistor LED driver circuit]
 The outputs of the logic gates pass through 7408 AND gates to ensure only one LED state is active. Because the logic ICs cannot supply sufficient current to drive LEDs, the signal is routed to the base of **2N3904 Transistors**, which act as current switches to illuminate the LEDs.
 
 ---
