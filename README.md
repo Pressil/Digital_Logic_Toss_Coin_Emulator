@@ -10,9 +10,18 @@ This project, a **Digital Toss Coin Emulator**, was designed entirely from scrat
 ## 📋 Schematic Diagram
 The following schematic outlines the circuit logic designed for this toss coin emulator:
 
-<p align="center">
-  <img src="circuit.jpg" alt="Schematic Diagram" width="600">
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="circuit.jpg" alt="Schematic Diagram" width="500">
+      <br><strong>Schematic Diagram</strong>
+    </td>
+    <td align="center">
+      <img src="testing.jpg" alt="testing" width="200">
+      <br><strong>Testing</strong>
+    </td>
+  </tr>
+</table>
 
 ## 🛠️ Bill of Materials
 The circuit utilizes the following components to achieve the desired logic operations:
